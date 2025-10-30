@@ -3,6 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import Header from './sections/Header';
 import { colors } from './style/theme';
+import Hero from './sections/Hero';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -14,6 +15,7 @@ export default function App() {
     <View style={styles.container}>
       <StatusBar style="auto" />
       <Header />
+      <Hero />
     </View>
   );
 }

@@ -17,15 +17,20 @@ export const textStyle = {
         fontSize: 56,
         lineHeight: 56 * 1.3,
     },
+    1.5: {
+        fontFamily: 'plusJakartaSans-Bold',
+        fontSize: 40,
+        lineHeight: 40 * 1.2,
+    },
     2: {
         fontFamily: 'plusJakartaSans-Bold',
         fontSize: 40,
-        lineHeight: 32 * 1.3,
+        lineHeight: 40 * 1.3,
     },
     3: {
         fontFamily: 'plusJakartaSans-Bold',
         fontSize: 24,
-        lineHeight: 32 * 1.3,
+        lineHeight: 24 * 1.3,
     },
     4: {
         fontFamily: 'plusJakartaSans-Medium',
