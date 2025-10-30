@@ -3,7 +3,7 @@
     "name": "single-page-design-portfolio-app",
     "slug": "single-page-design-portfolio-app",
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "newArchEnabled": true,
