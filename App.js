@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
 import { useFonts } from 'expo-font';
-import Header from './sections/Header';
+import Banner from './sections/Banner';
 import { colors } from './style/theme';
 import Hero from './sections/Hero';
 
@@ -12,20 +12,31 @@ export default function App() {
   });
 
   return (
-    <View style={styles.container}>
+    <View style={styles.containerMain}>
       <StatusBar style="auto" />
-      <Header />
-      <Hero />
+      <View style={styles.containerTop}>
+        <Banner />
+        <Hero />
+      </View>
+
+      <Banner />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  containerMain: {
     flex: 1,
     backgroundColor: colors.neutral200,
     alignItems: 'center',
     paddingVertical: 24,
     gap: 64,
   },
+  containerTop: {
+    borderColor: 'red',
+    borderWidth: 3,
+    width: '100%',
+    padding: 16,
+    gap: 40
+  }
 });

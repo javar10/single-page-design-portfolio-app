@@ -14,7 +14,6 @@ export default Hero
 
 const styles = StyleSheet.create({
     container: {
-        width: '91.5%',
         flexDirection: 'column',
         alignItems: 'center',
         gap: 20,

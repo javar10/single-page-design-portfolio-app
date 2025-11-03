@@ -2,7 +2,7 @@ import { StyleSheet, View, Image } from 'react-native'
 import Logo from '../assets/images/Logo.png'
 import Button from '../components/Button'
 
-const Header = () => {
+const Banner = () => {
 
   return (
     <View style={styles.container}>
@@ -12,11 +12,10 @@ const Header = () => {
   )
 }
 
-export default Header
+export default Banner
 
 const styles = StyleSheet.create({
   container: {
-    width: '91.5%',
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
