@@ -6,6 +6,7 @@ export const colors = {
     lightRed500: '#E16B5B',
     galacticBlue500: '#755CDE',
     summerYellow500: '#F6A560',
+    orange500: '#EC9B56',
     pink500: '#F39E9E',
     cyan500: '#61C4B7',
     darkPurple500: '#552049'
