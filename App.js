@@ -14,10 +14,14 @@ export default function App() {
   });
 
   return (
-    <View style={styles.containerMain}>
+    <View style={styles.mainContainer}>
       <StatusBar style="auto" />
 
-      <ScrollView >
+      <ScrollView
+        style={styles.scrollView}
+        contentContainerStyle={styles.contentContainer}
+        showsVerticalScrollIndicator={false}
+      >
 
         <View style={styles.containerTop}>
           <Banner />
@@ -34,9 +38,14 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  containerMain: {
+  mainContainer: {
     flex: 1,
     backgroundColor: colors.neutral200,
+  },
+  scrollView: {
+    flex: 1,
+  },
+  contentContainer: {
     alignItems: 'center',
     paddingVertical: 24,
     gap: 64,
