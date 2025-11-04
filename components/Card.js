@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View, Image } from 'react-native'
 import { textStyle, colors } from '../style/theme'
 
-const Card = ({ backgroundColor, height, imgHeight, imgWidth, image, text }) => {
-    const s = styles(height, backgroundColor, imgHeight, imgWidth);
+const Card = ({ backgroundColor, imgHeight, imgWidth, image, text }) => {
+    const s = styles(backgroundColor, imgHeight, imgWidth);
 
     return (
         <View style={s.container}>
@@ -19,13 +19,14 @@ const Card = ({ backgroundColor, height, imgHeight, imgWidth, image, text }) => 
 
 export default Card
 
-const styles = (height, backgroundColor, imgHeight, imgWidth) => StyleSheet.create({
+const styles = (backgroundColor, imgHeight, imgWidth) => StyleSheet.create({
     container: {
-        height: height,
+        height: '100%',
         borderRadius: 8,
         justifyContent: 'space-between',
         padding: 20,
         backgroundColor: backgroundColor,
+        flex: 1,
     },
     imageContainer: {
         alignItems: 'flex-end',
