@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { colors } from '../style/theme'
 import Card from '../components/Card'
 
@@ -13,8 +13,6 @@ const IMAGES = {
 
 
 const Services = () => {
-
-
     return (
         <View style={styles.mainContainer}>
             <View style={styles.topContainer}>
