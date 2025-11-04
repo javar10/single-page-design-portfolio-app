@@ -1,9 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import { useFonts } from 'expo-font';
-import Banner from './sections/Banner';
 import { colors } from './style/theme';
+import Banner from './sections/Banner';
 import Hero from './sections/Hero';
+import Services from './sections/Services';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -13,13 +14,18 @@ export default function App() {
 
   return (
     <View style={styles.containerMain}>
-      <StatusBar style="auto" />
+<StatusBar style="auto" />
+    
+    <ScrollView >
+      
       <View style={styles.containerTop}>
         <Banner />
         <Hero />
+        <Services />
       </View>
 
       <Banner />
+    </ScrollView>
     </View>
   );
 }
@@ -33,8 +39,6 @@ const styles = StyleSheet.create({
     gap: 64,
   },
   containerTop: {
-    borderColor: 'red',
-    borderWidth: 3,
     width: '100%',
     padding: 16,
     gap: 40
