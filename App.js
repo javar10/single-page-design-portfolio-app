@@ -6,6 +6,7 @@ import Banner from './sections/Banner';
 import Hero from './sections/Hero';
 import Services from './sections/Services';
 import AboutMe from './sections/AboutMe';
+import Contact from './sections/Contact';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -31,7 +32,8 @@ export default function App() {
 
         <AboutMe />
 
-        <Banner />
+        <Contact />
+    
       </ScrollView>
     </View>
   );
