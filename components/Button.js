@@ -23,6 +23,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
     borderRadius: 999,
     gap: 10,
+    alignSelf: 'center',
   },
   buttonDark: {
     backgroundColor: colors.neutral900,
