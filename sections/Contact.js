@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         gap: 24,
     },
     introText: {
-        ...textStyle[1],
+        ...textStyle[1.5],
         color: colors.neutral200,
         textAlign: 'center',
     },

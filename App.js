@@ -7,6 +7,7 @@ import Hero from './sections/Hero';
 import Services from './sections/Services';
 import AboutMe from './sections/AboutMe';
 import Contact from './sections/Contact';
+import Portfolio from './sections/Portfolio';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -31,7 +32,7 @@ export default function App() {
         </View>
 
         <AboutMe />
-
+        <Portfolio />
         <Contact />
     
       </ScrollView>
