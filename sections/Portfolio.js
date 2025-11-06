@@ -1,3 +1,4 @@
+import { useRef } from 'react'
 import { Pressable, StyleSheet, Text, View, Image } from 'react-native'
 import { colors, textStyle } from '../style/theme'
 import Carousel from './Carousel'
@@ -12,23 +13,54 @@ const ARROWS = {
 }
 
 const Portfolio = () => {
+    const leftRef = useRef(null);
+    const rightRef = useRef(null);
+
     return (
         <View style={styles.mainContainer}>
             <Text style={styles.introText}>My Work</Text>
             <Carousel />
             <View style={styles.arrowsContainer}>
-                <Pressable>
-                    <Image
-                        source={ARROWS.leftDefault}
-                        style={styles.arrowBtn}
-                    />
+                <Pressable
+                    ref={leftRef}
+                    onPress={() => {
+                        console.log('Button pressed');
+                        leftRef.current?.blur();
+                    }}
+                >
+                    {({ pressed, hovered, focused }) => {
+                        let source = ARROWS.leftDefault;
+
+                        if (pressed || hovered) {
+                            source = ARROWS.leftHover;
+                        } else if (focused) {
+                            source = ARROWS.leftFocus;
+                        }
+
+                        return <Image source={source} style={styles.arrowBtn} />;
+                    }}
                 </Pressable>
-                <Pressable>
-                    <Image
-                        source={ARROWS.rightDefault}
-                        style={styles.arrowBtn}
-                    />
+
+                <Pressable
+                    ref={rightRef}
+                    onPress={() => {
+                        console.log('Button pressed');
+                        rightRef.current?.blur();
+                    }}
+                >
+                    {({ pressed, hovered, focused }) => {
+                        let source = ARROWS.rightDefault;
+
+                        if (pressed || hovered) {
+                            source = ARROWS.rightHover;
+                        } else if (focused) {
+                            source = ARROWS.rightFocus;
+                        }
+
+                        return <Image source={source} style={styles.arrowBtn} />;
+                    }}
                 </Pressable>
+
             </View>
         </View>
     )
@@ -51,7 +83,7 @@ const styles = StyleSheet.create({
     arrowsContainer: {
         flexDirection: 'row',
         gap: 16
-    }, 
+    },
     arrowBtn: {
         width: 48,
         height: 48,
