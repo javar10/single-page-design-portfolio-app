@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { Pressable, StyleSheet, Text, View, Image } from 'react-native'
 import { colors, textStyle } from '../style/theme'
 import Carousel from './Carousel'
@@ -12,21 +12,40 @@ const ARROWS = {
     rightHover: require('../assets/images/Right-Hover.png'),
 }
 
+let index = 2;
+
 const Portfolio = () => {
     const leftRef = useRef(null);
     const rightRef = useRef(null);
 
+    const [currentIndex, setCurrentIndex] = useState(index);
+
+    const changeIndex = (direction) => {
+        let nextIndex = currentIndex;
+        nextIndex = currentIndex + direction
+
+        if (nextIndex < 0) nextIndex = 0;
+        if (nextIndex > 4) nextIndex = 4;
+
+        setCurrentIndex(nextIndex);
+        
+        // console.log('Left Button pressed');
+        console.log(currentIndex);
+        leftRef.current?.blur();
+        rightRef.current?.blur();
+    }
+
     return (
         <View style={styles.mainContainer}>
             <Text style={styles.introText}>My Work</Text>
-            <Carousel />
+            <Carousel
+                currentIndex={currentIndex}
+                setCurrentIndex={setCurrentIndex}
+            />
             <View style={styles.arrowsContainer}>
                 <Pressable
                     ref={leftRef}
-                    onPress={() => {
-                        console.log('Button pressed');
-                        leftRef.current?.blur();
-                    }}
+                    onPress={() => changeIndex(-1)}
                 >
                     {({ pressed, hovered, focused }) => {
                         let source = ARROWS.leftDefault;
@@ -43,10 +62,7 @@ const Portfolio = () => {
 
                 <Pressable
                     ref={rightRef}
-                    onPress={() => {
-                        console.log('Button pressed');
-                        rightRef.current?.blur();
-                    }}
+                    onPress={() => changeIndex(1)}
                 >
                     {({ pressed, hovered, focused }) => {
                         let source = ARROWS.rightDefault;
