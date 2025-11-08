@@ -66,8 +66,7 @@ const Carousel = ({ currentIndex, setCurrentIndex }) => {
                 onScrollBeginDrag={handleScrollBeginDrag}
                 onScrollEndDrag={handleScrollEndDrag}
                 contentContainerStyle={styles.imageContainer}
-                style={{ overflowX: 'scroll' }}
-
+                style={styles.scrollView}
             >
                 {IMAGES.map((img, i) => (
                     <Image key={i} source={img} style={styles.image} />
@@ -81,13 +80,16 @@ export default Carousel
 
 const styles = StyleSheet.create({
     mainContainer: {
-        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        height: 180
+        height: 180,
+        width: '100%'
+    },
+    scrollView: {
+        width: '100%',
+        overflowX: 'scroll',
     },
     imageContainer: {
-        borderWidth: 3,
         flexDirection: 'row',
         gap: GAP,
         alignItems: 'center',
