@@ -2,7 +2,7 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import Button from '../components/Button'
 import { textStyle, colors } from '../style/theme'
 
-const AboutMe = (width) => {
+const AboutMe = ({ width }) => {
     const s = styles(width);
 
     return (
@@ -33,20 +33,24 @@ export default AboutMe
 
 const styles = (w) => StyleSheet.create({
     mainContainer: {
-        flexDirection: 'column',
-        paddingHorizontal: 16,
-        gap: 24,
+        width: w > 1440 ? '77%' : 'auto',
+        flexDirection: w > 798 ? 'row' : 'column',
+        paddingHorizontal: w > 798 ? 0 : w > 740 ? 32 : 16,
+        gap: w > 798 ? 0 : 24,
         alignItems: 'center',
-        textAlign: 'center',
+        // textAlign: 'center',
+        justifyContent: 'space-between',
     },
     image: {
-        height: 300,
-        width: 300,
+        height: w > 798 ? 445 : 300,
+        width: w > 798 ? 445 : 300,
         resizeMode: 'contain',
     },
     contentContainer: {
+        width: w > 798 ? '49%' : 'auto',
         flexDirection: 'column',
         gap: 32,
+        alignItems: w > 798 ? 'flex-start' : 'center',
     },
     textContainer: {
         flexDirection: 'column',
@@ -55,11 +59,11 @@ const styles = (w) => StyleSheet.create({
     introText: {
         ...textStyle[2],
         color: colors.neutral900,
-        textAlign: 'center',
+        textAlign: w > 798 ? 'left' : 'center',
     },
     subText: {
         ...textStyle[4],
         color: colors.neutral400,
-        textAlign: 'center',
+        textAlign: w > 798 ? 'left' : 'center',
     }
 })
