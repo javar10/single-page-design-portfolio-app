@@ -44,3 +44,12 @@ export const textStyle = {
         lineHeight: 16 * 1.5,
     },
 };
+
+// breakpoints for responsive design
+// mobile width 0-739
+// tablet width 740-1040
+// desktop width 1040+
+
+        // paddingVertical: w > 740 ? 48 : 32,
+        // paddingHorizontal: w > 798 ? 48 : w > 740 ? 32 : 24,
+        // gap: w > 740 ? 32 : 24,

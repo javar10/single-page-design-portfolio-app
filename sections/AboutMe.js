@@ -2,20 +2,22 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import Button from '../components/Button'
 import { textStyle, colors } from '../style/theme'
 
-const AboutMe = () => {
+const AboutMe = (width) => {
+    const s = styles(width);
+
     return (
-        <View style={styles.mainContainer}>
+        <View style={s.mainContainer}>
             <Image
                 source={require('../assets/images/image-amy.webp')}
-                style={styles.image}
+                style={s.image}
             />
 
-            <View style={styles.contentContainer}>
-                <View style={styles.textContainer}>
-                    <Text style={styles.introText}>
+            <View style={s.contentContainer}>
+                <View style={s.textContainer}>
+                    <Text style={s.introText}>
                         I’m Amy, and I’d love to work on your next project
                     </Text>
-                    <Text style={styles.subText}>
+                    <Text style={s.subText}>
                         I love working with others to create beautiful design solutions. I’ve designed everything from brand illustrations to complete mobile apps. I’m also handy with a camera!
                     </Text>
                 </View>
@@ -29,7 +31,7 @@ const AboutMe = () => {
 
 export default AboutMe
 
-const styles = StyleSheet.create({
+const styles = (w) => StyleSheet.create({
     mainContainer: {
         flexDirection: 'column',
         paddingHorizontal: 16,

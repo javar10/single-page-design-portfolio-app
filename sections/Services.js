@@ -11,12 +11,13 @@ const IMAGES = {
     motionGraphics: require('../assets/images/pattern-motion-graphics.png')
 }
 
+const Services = ({ width }) => {
+    const s = styles(width);
 
-const Services = () => {
     return (
-        <View style={styles.mainContainer}>
-            <View style={styles.topContainer}>
-                <View style={styles.sectionContainer}>
+        <View style={s.mainContainer}>
+            <View style={s.topContainer}>
+                <View style={s.sectionContainer}>
                     <Card
                         backgroundColor={colors.galacticBlue500}
                         imgHeight={192}
@@ -26,8 +27,8 @@ const Services = () => {
                     />
                 </View>
 
-                <View style={styles.sectionContainer}>
-                    <View style={styles.twoSmallCards}>
+                <View style={s.sectionContainer}>
+                    <View style={s.twoSmallCards}>
                         <Card
                             backgroundColor={colors.orange500}
                             imgHeight={64}
@@ -54,14 +55,14 @@ const Services = () => {
             </View>
 
 
-            <View style={styles.twoLongCards}>
+            <View style={s.twoLongCards}>
                 <Card
                     backgroundColor={colors.cyan500}
                     imgHeight={64}
                     imgWidth={160}
                     image={IMAGES.photography}
                     text={'Photography'}
-                    style={styles.longCard}
+                    style={s.longCard}
                 />
                 <Card
                     backgroundColor={colors.darkPurple500}
@@ -69,7 +70,7 @@ const Services = () => {
                     imgWidth={128}
                     image={IMAGES.motionGraphics}
                     text={'Motion Graphics'}
-                    style={styles.longCard}
+                    style={s.longCard}
                 />
             </View>
         </View>
@@ -79,30 +80,33 @@ const Services = () => {
 
 export default Services
 
-const styles = StyleSheet.create({
+const styles = (w) => StyleSheet.create({
     mainContainer: {
-        flexDirection: 'column',
-        gap: 20,
+        flexDirection: w > 798 ? 'row' : 'column',
+        gap: w > 798 ? 24 : 20,
     },
     topContainer: {
-        flexDirection: 'column',
-        gap: 20,
+        flex: w > 740 ? 2 : 0,
+        flexDirection: w > 740 ? 'row' : 'column',
+        gap: w > 798 ? 24 : 20,
     },
     sectionContainer: {
+        flex: w > 740 ? 1 : 0,
         height: 364,
-        gap: 20,
+        gap: w > 798 ? 24 : 20,
         flexDirection: 'column'
     },
     twoSmallCards: {
         height: 182,
         width: '100%',
-        gap: 20,
+        gap: w > 798 ? 24 : 20,
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
     twoLongCards: {
-        height: 384,
-        gap: 20,
-        flexDirection: 'column'
-    }
+        flex: 1,
+        height: w > 798 ? 'auto' : w > 740 ? 182 : 384,
+        gap: w > 798 ? 24 : 20,
+        flexDirection: w > 798 ? 'column' : w > 740 ? 'row' : 'column'
+    },
 })

@@ -100,5 +100,6 @@ const styles = StyleSheet.create({
         width: IMAGE_WIDTH,
         height: 180,
         resizeMode: 'contain',
+        borderRadius: 6,
     },
 });
