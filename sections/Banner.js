@@ -17,9 +17,11 @@ export default Banner
 
 const styles = (w) => StyleSheet.create({
   container: {
+    // width: w > 798 ? '100%' : 'auto',
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
+    // alignSelf: 'center',
   },
   logo: {
     width: w > 740 ? 64 : 48,

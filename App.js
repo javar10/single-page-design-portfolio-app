@@ -9,11 +9,14 @@ import AboutMe from './sections/AboutMe';
 import Contact from './sections/Contact';
 import Portfolio from './sections/Portfolio';
 
+
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     'PlusJakartaSans-Bold': require('./assets/fonts/PlusJakartaSans-Bold.ttf'),
     'PlusJakartaSans-Medium': require('./assets/fonts/PlusJakartaSans-Medium.ttf'),
   });
+
   const { width } = useWindowDimensions();
   const s = styles(width);
 
@@ -35,7 +38,7 @@ export default function App() {
 
         <AboutMe width={width} />
         <Portfolio />
-        <Contact />
+        <Contact width={width} />
 
       </ScrollView>
     </View>
@@ -51,15 +54,14 @@ const styles = (w) => StyleSheet.create({
     flex: 1,
   },
   contentContainer: {
-    // borderWidth: w > 1044 ? 25 : w > 740 ? 10 : 2,
     alignItems: 'center',
     paddingTop: w > 1440 ? 32 : 24,
     paddingBottom: w > 1440 ? 64 : w > 740 ? 40 : 24,
     gap: w > 1440 ? 120 : w > 740 ? 80 : 64,
   },
   containerTop: {
-    width: w > 1440 ? '77%' : '100%',
-    paddingHorizontal: w > 1440 ? 'auto' : w > 740 ? 32 : 16,
+    width: w > 798 ? '82%' : '100%',
+    paddingHorizontal: w > 1440 ? 0 : w > 740 ? 32 : 16,
     gap: w > 1440 ? 80 : w > 740 ? 64 : 40,
   }
 });

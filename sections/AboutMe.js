@@ -33,7 +33,7 @@ export default AboutMe
 
 const styles = (w) => StyleSheet.create({
     mainContainer: {
-        width: w > 1440 ? '77%' : 'auto',
+        width: w > 798 ? '82%' : '100%',
         flexDirection: w > 798 ? 'row' : 'column',
         paddingHorizontal: w > 798 ? 0 : w > 740 ? 32 : 16,
         gap: w > 798 ? 0 : 24,
