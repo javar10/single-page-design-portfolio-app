@@ -87,12 +87,12 @@ const styles = (w) => StyleSheet.create({
         gap: w > 1040 ? 24 : 20,
     },
     topContainer: {
-        flex: w > 740 ? 2 : 0,
+        flex: w > 740 ? 2 : undefined,
         flexDirection: w > 740 ? 'row' : 'column',
         gap: w > 1040 ? 24 : 20,
     },
     sectionContainer: {
-        flex: w > 740 ? 1 : 0,
+        flex: w > 740 ? 1 : undefined,
         height: 364,
         gap: w > 1040 ? 24 : 20,
         flexDirection: 'column'
@@ -106,7 +106,7 @@ const styles = (w) => StyleSheet.create({
     },
     twoLongCards: {
         flex: 1,
-        height: w > 1040 ? 'auto' : w > 740 ? 182 : 384,
+        minHeight: w > 1040 ? 364 : w > 740 ? 182 : 384,
         gap: w > 1040 ? 24 : 20,
         flexDirection: w > 1040 ? 'column' : w > 740 ? 'row' : 'column'
     },
