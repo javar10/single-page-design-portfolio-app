@@ -12,8 +12,8 @@ const IMAGES = {
 }
 
 
-const Services = ({ width }) => {
-    const s = styles(width);
+const Services = ({ screenSize }) => {
+    const s = styles(screenSize);
 
     return (
         <View style={s.mainContainer}>
@@ -81,33 +81,33 @@ const Services = ({ width }) => {
 
 export default Services
 
-const styles = (w) => StyleSheet.create({
+const styles = (screenSize) => StyleSheet.create({
     mainContainer: {
-        flexDirection: w > 1040 ? 'row' : 'column',
-        gap: w > 1040 ? 24 : 20,
+        flexDirection: screenSize === 'laptop' ? 'row' : 'column',
+        gap: screenSize === 'laptop' ? 24 : 20,
     },
     topContainer: {
-        flex: w > 740 ? 2 : undefined,
-        flexDirection: w > 740 ? 'row' : 'column',
-        gap: w > 1040 ? 24 : 20,
+        flex: screenSize === 'laptop' || screenSize === 'tablet' ? 2 : undefined,
+        flexDirection: screenSize === 'laptop' || screenSize === 'tablet' ? 'row' : 'column',
+        gap: screenSize === 'laptop' ? 24 : 20,
     },
     sectionContainer: {
-        flex: w > 740 ? 1 : undefined,
+        flex: screenSize === 'laptop' || screenSize === 'tablet' ? 1 : undefined,
         height: 364,
-        gap: w > 1040 ? 24 : 20,
+        gap: screenSize === 'laptop' ? 24 : 20,
         flexDirection: 'column'
     },
     twoSmallCards: {
         height: 182,
         width: '100%',
-        gap: w > 1040 ? 24 : 20,
+        gap: screenSize === 'laptop' ? 24 : 20,
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
     twoLongCards: {
         flex: 1,
-        minHeight: w > 1040 ? 364 : w > 740 ? 182 : 384,
-        gap: w > 1040 ? 24 : 20,
-        flexDirection: w > 1040 ? 'column' : w > 740 ? 'row' : 'column'
+        minHeight: screenSize === 'laptop' ? 364 : screenSize === 'tablet' ? 182 : 384,
+        gap: screenSize === 'laptop' ? 24 : 20,
+        flexDirection: screenSize === 'laptop' ? 'column' : screenSize === 'tablet' ? 'row' : 'column'
     },
 })

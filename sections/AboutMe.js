@@ -2,8 +2,8 @@ import { StyleSheet, Text, View, Image } from 'react-native'
 import Button from '../components/Button'
 import { textStyle, colors } from '../style/theme'
 
-const AboutMe = ({ width }) => {
-    const s = styles(width);
+const AboutMe = ({ screenSize }) => {
+    const s = styles(screenSize);
 
     return (
         <View style={s.mainContainer}>
@@ -31,26 +31,25 @@ const AboutMe = ({ width }) => {
 
 export default AboutMe
 
-const styles = (w) => StyleSheet.create({
+const styles = (screenSize) => StyleSheet.create({
     mainContainer: {
-        width: w > 1040 ? '82%' : '100%',
-        flexDirection: w > 1040 ? 'row' : 'column',
-        paddingHorizontal: w > 1040 ? 0 : w > 740 ? 32 : 16,
-        gap: w > 1040 ? 0 : 24,
+        width: screenSize === 'laptop' ? '82%' : '100%',
+        flexDirection: screenSize === 'laptop' ? 'row' : 'column',
+        paddingHorizontal: screenSize === 'laptop' ? 0 : screenSize === 'tablet' ? 32 : 16,
+        gap: screenSize === 'laptop' ? 0 : 24,
         alignItems: 'center',
-        // textAlign: 'center',
         justifyContent: 'space-between',
     },
     image: {
-        height: w > 1040 ? 445 : 300,
-        width: w > 1040 ? 445 : 300,
+        height: screenSize === 'laptop' ? 445 : 300,
+        width: screenSize === 'laptop' ? 445 : 300,
         resizeMode: 'contain',
     },
     contentContainer: {
-        width: w > 1040 ? '49%' : 'auto',
+        width: screenSize === 'laptop' ? '49%' : 'auto',
         flexDirection: 'column',
         gap: 32,
-        alignItems: w > 1040 ? 'flex-start' : 'center',
+        alignItems: screenSize === 'laptop' ? 'flex-start' : 'center',
     },
     textContainer: {
         flexDirection: 'column',
@@ -59,11 +58,11 @@ const styles = (w) => StyleSheet.create({
     introText: {
         ...textStyle[2],
         color: colors.neutral900,
-        textAlign: w > 1040 ? 'left' : 'center',
+        textAlign: screenSize === 'laptop' ? 'left' : 'center',
     },
     subText: {
         ...textStyle[4],
         color: colors.neutral400,
-        textAlign: w > 1040 ? 'left' : 'center',
+        textAlign: screenSize === 'laptop' ? 'left' : 'center',
     }
 })

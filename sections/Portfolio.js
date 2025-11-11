@@ -14,8 +14,8 @@ const ARROWS = {
 
 let index = 2;
 
-const Portfolio = ({ width }) => {
-    const s = styles(width);
+const Portfolio = ({ screenSize, width }) => {
+    const s = styles(screenSize);
 
     const leftRef = useRef(null);
     const rightRef = useRef(null);
@@ -43,6 +43,7 @@ const Portfolio = ({ width }) => {
                 width={width}
                 currentIndex={currentIndex}
                 setCurrentIndex={setCurrentIndex}
+                screenSize={screenSize}
             />
             <View style={s.arrowsContainer}>
                 <Pressable
@@ -86,15 +87,15 @@ const Portfolio = ({ width }) => {
 
 export default Portfolio
 
-const styles = (w) => StyleSheet.create({
+const styles = (screenSize) => StyleSheet.create({
     mainContainer: {
         width: '100%',
         flexDirection: 'column',
-        gap: w > 740 ? 48 : 40,
+        gap: screenSize === 'laptop' || screenSize === 'tablet' ? 48 : 40,
         alignItems: 'center',
     },
     introText: {
-        ...(w > 740 ? textStyle[2] : textStyle[1.5]),
+        ...(screenSize === 'laptop' || screenSize === 'tablet' ? textStyle[2] : textStyle[1.5]),
         color: colors.neutral900,
         textAlign: 'centers',
     },
@@ -103,8 +104,8 @@ const styles = (w) => StyleSheet.create({
         gap: 16
     },
     arrowBtn: {
-        width: w > 740 ? 64 : 48,
-        height: w > 740 ? 64 : 48,
+        width: screenSize === 'laptop' || screenSize === 'tablet' ? 64 : 48,
+        height: screenSize === 'laptop' || screenSize === 'tablet' ? 64 : 48,
         resizeMode: 'contain',
     }
 })

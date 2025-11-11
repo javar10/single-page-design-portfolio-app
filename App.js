@@ -33,11 +33,11 @@ export default function App() {
         <View style={s.containerTop}>
           <Banner screenSize={screenSize} />
           <Hero screenSize={screenSize} />
-          <Services width={width} />
+          <Services screenSize={screenSize} />
         </View>
 
-        <AboutMe width={width} />
-        <Portfolio width={width} />
+        <AboutMe screenSize={screenSize} />
+        <Portfolio screenSize={screenSize} width={width}/>
         <Contact screenSize={screenSize} />
 
       </ScrollView>

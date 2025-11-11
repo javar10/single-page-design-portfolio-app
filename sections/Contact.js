@@ -51,7 +51,7 @@ const styles = (screenSize) => StyleSheet.create({
         gap: 24,
     },
     introText: {
-        ...(screenSize === 'tablet' ? textStyle[2] : textStyle[1.5]),
+        ...(screenSize === 'laptop' || screenSize === 'tablet' ? textStyle[2] : textStyle[1.5]),
         color: colors.neutral200,
         textAlign: screenSize === 'laptop' ? 'left' : 'center',
     },

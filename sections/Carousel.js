@@ -9,14 +9,14 @@ const IMAGES = [
     require('../assets/images/image-slide-5.jpg'),
 ];
 
-const Carousel = ({ width, currentIndex, setCurrentIndex }) => {
-    const IMAGE_WIDTH = width > 740 ? 540 : 270;
-    const GAP = width > 740 ? 32 : 20;
+const Carousel = ({ width, currentIndex, setCurrentIndex, screenSize }) => {
+    const IMAGE_WIDTH = screenSize === 'laptop' || screenSize === 'tablet' ? 540 : 270;
+    const GAP = screenSize === 'laptop' || screenSize === 'tablet' ? 32 : 20;
     const ITEM_SIZE = IMAGE_WIDTH + GAP;
     const SWIPE_THRESHOLD = 50;
     const PADDING = (width - IMAGE_WIDTH) / 2;
 
-    const s = styles(width, GAP, PADDING, IMAGE_WIDTH);
+    const s = styles(screenSize, GAP, PADDING, IMAGE_WIDTH);
 
     const scrollRef = useRef(null);
     const startX = useRef(0);
@@ -78,11 +78,11 @@ const Carousel = ({ width, currentIndex, setCurrentIndex }) => {
 
 export default Carousel
 
-const styles = (w, GAP, PADDING, IMAGE_WIDTH) => StyleSheet.create({
+const styles = (screenSize, GAP, PADDING, IMAGE_WIDTH) => StyleSheet.create({
     mainContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        height: w > 740 ? 360 : 180,
+        height: screenSize === 'laptop' || screenSize === 'tablet' ? 360 : 180,
         width: '100%'
     },
     scrollView: {
@@ -98,8 +98,8 @@ const styles = (w, GAP, PADDING, IMAGE_WIDTH) => StyleSheet.create({
     },
     image: {
         width: IMAGE_WIDTH,
-        height: w > 740 ? 360 : 180,
+        height: screenSize === 'laptop' || screenSize === 'tablet' ? 360 : 180,
         resizeMode: 'contain',
-        borderRadius: w > 740 ? 8 : 6,
+        borderRadius: screenSize === 'laptop' || screenSize === 'tablet' ? 8 : 6,
     },
 });

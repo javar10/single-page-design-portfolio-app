@@ -25,7 +25,7 @@ const styles = (screenSize) => StyleSheet.create({
   },
   heroText: {
     width: screenSize === 'laptop' ? '100%' : screenSize === 'tablet' ? '77%' : 'auto',
-    ...(screenSize === 'tablet' ? textStyle[1] : textStyle[1.5]),
+    ...(screenSize === 'laptop' || screenSize === 'tablet' ? textStyle[1] : textStyle[1.5]),
     textAlign: 'center',
     color: colors.neutral900,
   },

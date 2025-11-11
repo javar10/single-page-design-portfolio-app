@@ -22,7 +22,7 @@ const styles = (screenSize) => StyleSheet.create({
     flexDirection: 'row',
   },
   logo: {
-    width: screenSize === 'tablet' ? 64 : 48,
-    height: screenSize === 'tablet' ? 64 : 48,
+    width: screenSize === 'laptop' || screenSize === 'tablet' ? 64 : 48,
+    height: screenSize === 'laptop' || screenSize === 'tablet' ? 64 : 48,
   }
 })
