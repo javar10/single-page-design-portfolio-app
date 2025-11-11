@@ -37,7 +37,7 @@ export default function App() {
         </View>
 
         <AboutMe width={width} />
-        <Portfolio />
+        <Portfolio width={width} />
         <Contact width={width} />
 
       </ScrollView>

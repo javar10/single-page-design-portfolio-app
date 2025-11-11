@@ -14,7 +14,9 @@ const ARROWS = {
 
 let index = 2;
 
-const Portfolio = () => {
+const Portfolio = ({ width }) => {
+    const s = styles(width);
+
     const leftRef = useRef(null);
     const rightRef = useRef(null);
 
@@ -28,21 +30,21 @@ const Portfolio = () => {
         if (nextIndex > 4) nextIndex = 4;
 
         setCurrentIndex(nextIndex);
-        
-        // console.log('Left Button pressed');
+
         console.log(currentIndex);
         leftRef.current?.blur();
         rightRef.current?.blur();
     }
 
     return (
-        <View style={styles.mainContainer}>
-            <Text style={styles.introText}>My Work</Text>
+        <View style={s.mainContainer}>
+            <Text style={s.introText}>My Work</Text>
             <Carousel
+                width={width}
                 currentIndex={currentIndex}
                 setCurrentIndex={setCurrentIndex}
             />
-            <View style={styles.arrowsContainer}>
+            <View style={s.arrowsContainer}>
                 <Pressable
                     ref={leftRef}
                     onPress={() => changeIndex(-1)}
@@ -56,7 +58,7 @@ const Portfolio = () => {
                             source = ARROWS.leftFocus;
                         }
 
-                        return <Image source={source} style={styles.arrowBtn} />;
+                        return <Image source={source} style={s.arrowBtn} />;
                     }}
                 </Pressable>
 
@@ -73,7 +75,7 @@ const Portfolio = () => {
                             source = ARROWS.rightFocus;
                         }
 
-                        return <Image source={source} style={styles.arrowBtn} />;
+                        return <Image source={source} style={s.arrowBtn} />;
                     }}
                 </Pressable>
 
@@ -84,15 +86,15 @@ const Portfolio = () => {
 
 export default Portfolio
 
-const styles = StyleSheet.create({
+const styles = (w) => StyleSheet.create({
     mainContainer: {
         width: '100%',
         flexDirection: 'column',
-        gap: 40,
+        gap: w > 768 ? 48 : 40,
         alignItems: 'center',
     },
     introText: {
-        ...textStyle[1.5],
+        ...(w > 740 ? textStyle[2] : textStyle[1.5]),
         color: colors.neutral900,
         textAlign: 'centers',
     },
@@ -101,8 +103,8 @@ const styles = StyleSheet.create({
         gap: 16
     },
     arrowBtn: {
-        width: 48,
-        height: 48,
+        width: w > 768 ? 64 : 48,
+        height: w > 768 ? 64 : 48,
         resizeMode: 'contain',
     }
 })

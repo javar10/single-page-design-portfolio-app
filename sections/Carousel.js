@@ -1,7 +1,7 @@
 import { useRef, useEffect, useState } from 'react';
 import { StyleSheet, View, ScrollView, Image, Dimensions } from 'react-native';
 
-const { width } = Dimensions.get('window');
+// const { width } = Dimensions.get('window');
 
 const IMAGES = [
     require('../assets/images/image-slide-1.jpg'),
@@ -11,13 +11,15 @@ const IMAGES = [
     require('../assets/images/image-slide-5.jpg'),
 ];
 
-const IMAGE_WIDTH = 270;
-const GAP = 20;
-const ITEM_SIZE = IMAGE_WIDTH + GAP;
-const SWIPE_THRESHOLD = 50;
-const PADDING = (width - IMAGE_WIDTH) / 2;
+const Carousel = ({ width, currentIndex, setCurrentIndex }) => {
+    const IMAGE_WIDTH = width > 740 ? 540 : 270;
+    const GAP = width > 740 ? 32 : 20;
+    const ITEM_SIZE = IMAGE_WIDTH + GAP;
+    const SWIPE_THRESHOLD = 50;
+    const PADDING = (width - IMAGE_WIDTH) / 2;
 
-const Carousel = ({ currentIndex, setCurrentIndex }) => {
+    const s = styles(width, GAP, PADDING, IMAGE_WIDTH);
+
     const scrollRef = useRef(null);
     const startX = useRef(0);
     const [isReady, setIsReady] = useState(false);
@@ -55,7 +57,7 @@ const Carousel = ({ currentIndex, setCurrentIndex }) => {
     };
 
     return (
-        <View style={styles.mainContainer} onLayout={() => setIsReady(true)}>
+        <View style={s.mainContainer} onLayout={() => setIsReady(true)}>
             <ScrollView
                 ref={scrollRef}
                 horizontal
@@ -65,11 +67,11 @@ const Carousel = ({ currentIndex, setCurrentIndex }) => {
                 decelerationRate="fast"
                 onScrollBeginDrag={handleScrollBeginDrag}
                 onScrollEndDrag={handleScrollEndDrag}
-                contentContainerStyle={styles.imageContainer}
-                style={styles.scrollView}
+                contentContainerStyle={s.imageContainer}
+                style={s.scrollView}
             >
                 {IMAGES.map((img, i) => (
-                    <Image key={i} source={img} style={styles.image} />
+                    <Image key={i} source={img} style={s.image} />
                 ))}
             </ScrollView>
         </View>
@@ -78,11 +80,11 @@ const Carousel = ({ currentIndex, setCurrentIndex }) => {
 
 export default Carousel
 
-const styles = StyleSheet.create({
+const styles = (w, GAP, PADDING, IMAGE_WIDTH) => StyleSheet.create({
     mainContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-        height: 180,
+        height: w > 740 ? 360 : 180,
         width: '100%'
     },
     scrollView: {
@@ -98,8 +100,8 @@ const styles = StyleSheet.create({
     },
     image: {
         width: IMAGE_WIDTH,
-        height: 180,
+        height: w > 740 ? 360 : 180,
         resizeMode: 'contain',
-        borderRadius: 6,
+        borderRadius: w > 740 ? 8 : 6,
     },
 });
