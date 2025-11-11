@@ -8,6 +8,7 @@ import Services from './sections/Services';
 import AboutMe from './sections/AboutMe';
 import Contact from './sections/Contact';
 import Portfolio from './sections/Portfolio';
+import Attribution from './sections/Attribution';
 
 
 export default function App() {
@@ -40,6 +41,7 @@ export default function App() {
         <Portfolio screenSize={screenSize} width={width}/>
         <Contact screenSize={screenSize} />
 
+        <Attribution screenSize={screenSize} />
       </ScrollView>
     </View>
   );
