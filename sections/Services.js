@@ -11,6 +11,7 @@ const IMAGES = {
     motionGraphics: require('../assets/images/pattern-motion-graphics.png')
 }
 
+
 const Services = ({ width }) => {
     const s = styles(width);
 
@@ -82,31 +83,31 @@ export default Services
 
 const styles = (w) => StyleSheet.create({
     mainContainer: {
-        flexDirection: w > 798 ? 'row' : 'column',
-        gap: w > 798 ? 24 : 20,
+        flexDirection: w > 1040 ? 'row' : 'column',
+        gap: w > 1040 ? 24 : 20,
     },
     topContainer: {
         flex: w > 740 ? 2 : 0,
         flexDirection: w > 740 ? 'row' : 'column',
-        gap: w > 798 ? 24 : 20,
+        gap: w > 1040 ? 24 : 20,
     },
     sectionContainer: {
         flex: w > 740 ? 1 : 0,
         height: 364,
-        gap: w > 798 ? 24 : 20,
+        gap: w > 1040 ? 24 : 20,
         flexDirection: 'column'
     },
     twoSmallCards: {
         height: 182,
         width: '100%',
-        gap: w > 798 ? 24 : 20,
+        gap: w > 1040 ? 24 : 20,
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
     twoLongCards: {
         flex: 1,
-        height: w > 798 ? 'auto' : w > 740 ? 182 : 384,
-        gap: w > 798 ? 24 : 20,
-        flexDirection: w > 798 ? 'column' : w > 740 ? 'row' : 'column'
+        height: w > 1040 ? 'auto' : w > 740 ? 182 : 384,
+        gap: w > 1040 ? 24 : 20,
+        flexDirection: w > 1040 ? 'column' : w > 740 ? 'row' : 'column'
     },
 })

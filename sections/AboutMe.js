@@ -33,24 +33,24 @@ export default AboutMe
 
 const styles = (w) => StyleSheet.create({
     mainContainer: {
-        width: w > 798 ? '82%' : '100%',
-        flexDirection: w > 798 ? 'row' : 'column',
-        paddingHorizontal: w > 798 ? 0 : w > 740 ? 32 : 16,
-        gap: w > 798 ? 0 : 24,
+        width: w > 1040 ? '82%' : '100%',
+        flexDirection: w > 1040 ? 'row' : 'column',
+        paddingHorizontal: w > 1040 ? 0 : w > 740 ? 32 : 16,
+        gap: w > 1040 ? 0 : 24,
         alignItems: 'center',
         // textAlign: 'center',
         justifyContent: 'space-between',
     },
     image: {
-        height: w > 798 ? 445 : 300,
-        width: w > 798 ? 445 : 300,
+        height: w > 1040 ? 445 : 300,
+        width: w > 1040 ? 445 : 300,
         resizeMode: 'contain',
     },
     contentContainer: {
-        width: w > 798 ? '49%' : 'auto',
+        width: w > 1040 ? '49%' : 'auto',
         flexDirection: 'column',
         gap: 32,
-        alignItems: w > 798 ? 'flex-start' : 'center',
+        alignItems: w > 1040 ? 'flex-start' : 'center',
     },
     textContainer: {
         flexDirection: 'column',
@@ -59,11 +59,11 @@ const styles = (w) => StyleSheet.create({
     introText: {
         ...textStyle[2],
         color: colors.neutral900,
-        textAlign: w > 798 ? 'left' : 'center',
+        textAlign: w > 1040 ? 'left' : 'center',
     },
     subText: {
         ...textStyle[4],
         color: colors.neutral400,
-        textAlign: w > 798 ? 'left' : 'center',
+        textAlign: w > 1040 ? 'left' : 'center',
     }
 })

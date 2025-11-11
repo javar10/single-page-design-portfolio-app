@@ -1,8 +1,8 @@
 import { StyleSheet, Text, View } from 'react-native'
 import { colors, textStyle } from '../style/theme'
 
-const Hero = ({ width }) => {
-  const s = styles(width);
+const Hero = ({ screenSize }) => {
+  const s = styles(screenSize);
 
   return (
     <View style={s.container}>
@@ -14,9 +14,9 @@ const Hero = ({ width }) => {
 
 export default Hero
 
-const styles = (w) => StyleSheet.create({
+const styles = (screenSize) => StyleSheet.create({
   container: {
-    width: w > 798 ? '68%' : 'auto',
+    width: screenSize === 'laptop' ? '68%' : 'auto',
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
@@ -24,13 +24,13 @@ const styles = (w) => StyleSheet.create({
     alignSelf: 'center',
   },
   heroText: {
-    width: w > 798 ? '100%' : w > 740 ? '77%' : 'auto',
-    ...(w > 740 ? textStyle[1] : textStyle[1.5]),
+    width: screenSize === 'laptop' ? '100%' : screenSize === 'tablet' ? '77%' : 'auto',
+    ...(screenSize === 'tablet' ? textStyle[1] : textStyle[1.5]),
     textAlign: 'center',
     color: colors.neutral900,
   },
   heroSubText: {
-    width: w > 798 ? '76%' : w > 740 ? '85%' : 'auto',
+    width: screenSize === 'laptop' ? '76%' : screenSize === 'tablet' ? '85%' : 'auto',
     ...textStyle[4],
     textAlign: 'center',
     color: colors.neutral400,

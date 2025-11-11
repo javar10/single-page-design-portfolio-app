@@ -51,5 +51,4 @@ export const textStyle = {
 // desktop width 1040+
 
         // paddingVertical: w > 740 ? 48 : 32,
-        // paddingHorizontal: w > 798 ? 48 : w > 740 ? 32 : 24,
-        // gap: w > 740 ? 32 : 24,
+        // paddingHorizontal: w > 1040 ? 48 : w > 740 ? 32 : 24,

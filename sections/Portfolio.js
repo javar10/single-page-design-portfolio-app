@@ -90,7 +90,7 @@ const styles = (w) => StyleSheet.create({
     mainContainer: {
         width: '100%',
         flexDirection: 'column',
-        gap: w > 768 ? 48 : 40,
+        gap: w > 740 ? 48 : 40,
         alignItems: 'center',
     },
     introText: {
@@ -103,8 +103,8 @@ const styles = (w) => StyleSheet.create({
         gap: 16
     },
     arrowBtn: {
-        width: w > 768 ? 64 : 48,
-        height: w > 768 ? 64 : 48,
+        width: w > 740 ? 64 : 48,
+        height: w > 740 ? 64 : 48,
         resizeMode: 'contain',
     }
 })

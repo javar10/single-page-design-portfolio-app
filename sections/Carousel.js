@@ -1,7 +1,5 @@
 import { useRef, useEffect, useState } from 'react';
-import { StyleSheet, View, ScrollView, Image, Dimensions } from 'react-native';
-
-// const { width } = Dimensions.get('window');
+import { StyleSheet, View, ScrollView, Image } from 'react-native';
 
 const IMAGES = [
     require('../assets/images/image-slide-1.jpg'),

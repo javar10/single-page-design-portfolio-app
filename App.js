@@ -10,7 +10,6 @@ import Contact from './sections/Contact';
 import Portfolio from './sections/Portfolio';
 
 
-
 export default function App() {
   const [fontsLoaded] = useFonts({
     'PlusJakartaSans-Bold': require('./assets/fonts/PlusJakartaSans-Bold.ttf'),
@@ -18,7 +17,8 @@ export default function App() {
   });
 
   const { width } = useWindowDimensions();
-  const s = styles(width);
+  const screenSize = width > 1040 ? 'laptop' : width > 740 ? 'tablet' : 'phone';
+  const s = styles(screenSize);
 
   return (
     <View style={s.mainContainer}>
@@ -31,21 +31,21 @@ export default function App() {
       >
 
         <View style={s.containerTop}>
-          <Banner width={width} />
-          <Hero width={width} />
+          <Banner screenSize={screenSize} />
+          <Hero screenSize={screenSize} />
           <Services width={width} />
         </View>
 
         <AboutMe width={width} />
         <Portfolio width={width} />
-        <Contact width={width} />
+        <Contact screenSize={screenSize} />
 
       </ScrollView>
     </View>
   );
 }
 
-const styles = (w) => StyleSheet.create({
+const styles = (screenSize) => StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: colors.neutral200,
@@ -55,13 +55,13 @@ const styles = (w) => StyleSheet.create({
   },
   contentContainer: {
     alignItems: 'center',
-    paddingTop: w > 1440 ? 32 : 24,
-    paddingBottom: w > 1440 ? 64 : w > 740 ? 40 : 24,
-    gap: w > 1440 ? 120 : w > 740 ? 80 : 64,
+    paddingTop: screenSize === 'laptop' ? 32 : 24,
+    paddingBottom: screenSize === 'laptop' ? 64 : screenSize === 'tablet' ? 40 : 24,
+    gap: screenSize === 'laptop' ? 120 : screenSize === 'tablet' ? 80 : 64,
   },
   containerTop: {
-    width: w > 798 ? '82%' : '100%',
-    paddingHorizontal: w > 1440 ? 0 : w > 740 ? 32 : 16,
-    gap: w > 1440 ? 80 : w > 740 ? 64 : 40,
+    width: screenSize === 'laptop' ? '82%' : '100%',
+    paddingHorizontal: screenSize === 'laptop' ? 0 : screenSize === 'tablet' ? 32 : 16,
+    gap: screenSize === 'laptop' ? 80 : screenSize === 'tablet' ? 64 : 40,
   }
 });

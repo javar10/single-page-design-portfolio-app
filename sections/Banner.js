@@ -2,8 +2,8 @@ import { StyleSheet, View, Image } from 'react-native'
 import Logo from '../assets/images/Logo.png'
 import Button from '../components/Button'
 
-const Banner = ({ width }) => {
-  const s = styles(width);
+const Banner = ({ screenSize }) => {
+  const s = styles(screenSize);
 
   return (
     <View style={s.container}>
@@ -15,16 +15,14 @@ const Banner = ({ width }) => {
 
 export default Banner
 
-const styles = (w) => StyleSheet.create({
+const styles = (screenSize) => StyleSheet.create({
   container: {
-    // width: w > 798 ? '100%' : 'auto',
     justifyContent: 'space-between',
     alignItems: 'center',
     flexDirection: 'row',
-    // alignSelf: 'center',
   },
   logo: {
-    width: w > 740 ? 64 : 48,
-    height: w > 740 ? 64 : 48,
+    width: screenSize === 'tablet' ? 64 : 48,
+    height: screenSize === 'tablet' ? 64 : 48,
   }
 })
